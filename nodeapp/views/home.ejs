@@ -1,11 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>hola</h1>NodeApp
-</body>
-</html>
+<% include('header.ejs') %>
+    <h1><%= appName %></h1>
+    <p>Ejemplo de inyección de código <%= nombre %></p>
+    
+    <h2>Condicionales</h2>
+    <p>El segundo actual es: <%= segundoActual %></p>
+    <% if (esPar) { %>
+        <p>El segundo actual es par.</p>
+    <% } else { %>
+        <p>El segundo actual es impar.</p>
+    <% } %>
+
+    <h2>Bucles</h2>
+    <% users.forEach(user => { %>
+        <p><%= user.name %> tiene <%= user.age %> años.</p>
+    <% }) %>
+
+<% include('footer.ejs') %>
