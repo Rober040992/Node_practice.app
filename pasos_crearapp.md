@@ -13,7 +13,8 @@ si has clonado el repo tendras que usar npm install
 
 ## 3 si vamos a crearla con express(que es lo mas común)
 
-npm i express  
+- npm i express  
+aqui el repo: https://github.com/expressjs/express
 ahora meter la carpeta node_modules en .ignore
 
 ## 4 creamos el server en la carpeta main:  
@@ -37,7 +38,6 @@ const server = http.createServer(app)
 server.on('listening', () => { console.log('Servidor arrancado') })
 server.listen(3000)
 ```
-
 
 ### tampien podemos instalar un controlador de versiones node ;
 En windows - https://github.com/coreybutler/nvm-windows

@@ -1,3 +1,5 @@
+//funcion cronometro de guille
+
 import { createServer } from 'node:http'
 
 function showOne(callback, index = 0, step = 1, limit = 5, PORT = 8000) {
