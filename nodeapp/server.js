@@ -1,7 +1,6 @@
 import http from 'node:http'
 //esto es la libreria http para crear el server
 
-
 /*
 En Node.js, Express es una librería o framework que simplifica el manejo de rutas y solicitudes HTTP. 
 En lugar de escribir código desde cero para gestionar el enrutamiento de solicitudes HTTP, podemos usar Express para hacerlo de forma rápida y eficiente.
@@ -15,7 +14,6 @@ import app from './app.js'
 const debug = debugLib('nodeapp:server')
 //esta vari
 const port = process.env.PORT || 3000
-
 
 // create http server
 const server = http.createServer(app)

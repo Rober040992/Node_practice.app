@@ -1,6 +1,6 @@
 'use strict';
 
-function escribeTras2Segundos(texto, instruccionsParaDespues) {
+function escribeTras2Segundos (texto, instruccionsParaDespues) {
     setTimeout(function () {
         console.log(texto);
         instruccionsParaDespues()
