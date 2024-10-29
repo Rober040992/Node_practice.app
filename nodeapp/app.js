@@ -10,21 +10,18 @@ app.set('views', 'views') // views folder
 app.set('view engine', 'ejs')
 
 app.use(logger('dev'))
+app.use(express.json()) //parsear el body a formato json y que nos valga el postman o thunderclient
+app.use(express.urlencoded()) //para parsear el body que venga encoded (para)
 app.use(express.static('public'))
 
 /**
  * Application routes
  */
 app.get('/', homeController.index)
+app.get('/param_in_route/:num?', homeController.paranInRouteExample)
 
-app.get('/user', (req, res, next) => {
-    console.log('petición a /user')
-    next()
-})
+app.post('/create-example', homeController.createExample)
 
-app.get('/user', (req, res, next) => {
-    res.send('2222')
-})
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -37,7 +34,11 @@ app.use((req, res, next) => {
 // error handler
 app.use((err, req, res, next) => {
     res.status(err.status || 500)
-    res.send('Ocurrió un error: ' + err.message)
+    //set locals
+    res.locals.message = err.message
+    res.locals.error = process.env.NODEAPP_ENV === 'developement' ? err : {}
+    //remder error view
+    res.render(error)
 })
 
 export default app
