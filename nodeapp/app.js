@@ -2,8 +2,11 @@ import express from 'express'
 import createError from 'http-errors'
 import logger from 'morgan'
 import * as homeController from './controllers/homeControllers.js'
+import connectMongoose from './lib/connectMongoose.js'
+
 
 const app = express()
+await connectMongoose(console.log('conectado a mongo db'))
 
 app.locals.appName = 'Nodeapp!!!'
 app.set('views', 'views') // views folder
