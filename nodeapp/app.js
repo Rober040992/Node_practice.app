@@ -5,8 +5,9 @@ import * as homeController from './controllers/homeControllers.js'
 import connectMongoose from './lib/connectMongoose.js'
 
 
+await connectMongoose() //top level await
+console.log('conectado a mongo db')
 const app = express()
-await connectMongoose(console.log('conectado a mongo db'))
 
 app.locals.appName = 'Nodeapp!!!'
 app.set('views', 'views') // views folder
@@ -37,11 +38,11 @@ app.use((req, res, next) => {
 // error handler
 app.use((err, req, res, next) => {
     res.status(err.status || 500)
-    //set locals
+    //set locals only providing error in development
     res.locals.message = err.message
     res.locals.error = process.env.NODEAPP_ENV === 'developement' ? err : {}
-    //remder error view
-    res.render(error)
+    //render error view
+    res.render('error')
 })
 
 export default app
